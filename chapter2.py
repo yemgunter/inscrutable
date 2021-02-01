@@ -14,14 +14,12 @@ hot_dogs_sold_today = 56
 x = 5
 
 
-
 print(3)
 
 print()
 
 
-
-Finds out the User Name & Age
+# Finds out the User Name & Age
 
 name = input("Enter your name: ")
 
