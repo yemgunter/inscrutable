@@ -24,3 +24,9 @@
 ##name = input("Enter your name: ")
 ##
 ##print("Hello,", name, " you are ", age, " years old,")
+
+# This program demonstrates a variable.
+##room = 503
+##print('I am staying in room number')
+##print(room)
+
