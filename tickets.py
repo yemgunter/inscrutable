@@ -7,7 +7,12 @@
 age = int(input("Enter your age: "))
 
 # Assuming user has entered a valid age
-
+if not (age <= 8 or age >= 65):
+    ticket_price = 10.0
+elif not (age > 8):
+    ticket_price = 5.0
+else:
+    ticket_price = 8.0
 
 ##if age >= 65:
 ##    ticket_price = 8.0
