@@ -8,22 +8,23 @@
 
 
 
-###Division
-##print(5/2)
-##
-###Remainders
-##print(5%2)
-##
-###Exponents
-##print(4**2)
-##
-###Understand operator precedence
-##print(4 - 1 + 6 / 2)
-##
-###Result of the above is going to be floating point unless I use slash to remove it
-##print(4 - 1 + 6 // 2)
+#Division
+print(5 / 2)
+print(5 // 2)
+
+#Remainders
+print(5 % 2)
+
+#Exponents
+print(4 ** 2)
+
+#Understand operator precedence
+print(4 - 1 + 6 / 2)
+
+#Result of the above is going to be floating point unless I use slash to remove it
+print(4 - 1 + 6 // 2)
 
 num = int(input('Enter a number. '))
 
 temperature = float(input('What is the temperature? '))
-s
+print("The temperature is: ", temperature)
