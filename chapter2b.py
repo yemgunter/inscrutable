@@ -27,6 +27,15 @@ print('One', 'Two', 'Three', sep='')
 print()
 
 
+#Same as above -- same line BUT using sep='*' item separator
+print('One', 'Two', 'Three', sep='*')
+print()
+
+print('One', 'Two', 'Three', sep='~~~')
+print()
+
+
+
 ##total_seconds = int(input("Enter number of seconds: "))
 ##
 ##minutes = total_seconds // 60
