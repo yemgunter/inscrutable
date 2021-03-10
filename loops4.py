@@ -20,8 +20,10 @@
 ##print(total)
 
 
-total = 0.0
-for count in range(3): # write a for clause with the correct range
-    number = float(input("Enter a nunber: "))
-    total += number
-print("The total is", total)
+##total = 0.0
+##for count in range(3): # write a for clause with the correct range
+##    number = float(input("Enter a nunber: "))
+##    total += number
+##print("The total is", total)
+
+
