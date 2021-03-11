@@ -16,9 +16,20 @@
 ##    
 ##print("Program Ended")
 
-n = 0
-total = 0
-k = 1
-while k <= n:
-    total+= k**3
-    k+=1
+
+### 4.2 Quiz Answer mine then Prof K's
+##
+##n = 1
+##while n > 0:
+##    k = n ** 3
+##    total = k + k
+##    n += 1
+##
+##    
+##total = 0
+##k = 1
+##while k <= n:
+##    #total = total + k** 3
+##    total += k**3
+##    #k = k + 1
+##    k += 1
