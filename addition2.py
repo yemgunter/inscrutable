@@ -2,8 +2,8 @@
 
 def main(): # This is calling the function
     # Read two integers
-    x = int(input("Enter and interget: "))
-    y = int(input("Enter and interget: "))
+    x = int(input("Enter and interger: "))
+    y = int(input("Enter and interger: "))
 
     add_numbers(x, y)
 
