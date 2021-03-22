@@ -1,4 +1,7 @@
-# 4.7 Nested Loops
+# 4.7 Nested Loops - A loop inside another loop
 
-for seconds in range(60):
-    print(seconds)
+### (Digital Clock Loop)
+##for hours in range(24):
+##    for minutes in range(60):
+##        for seconds in range(60):
+##            print(hours, ':', minutes, ':', seconds)
