@@ -5,3 +5,12 @@
 ##    for minutes in range(60):
 ##        for seconds in range(60):
 ##            print(hours, ':', minutes, ':', seconds)
+
+
+## (printing stair steps)
+
+num_steps = 6
+for r in range(num_steps):
+    for c in range(r):
+        print(' ', end='')
+    print('#')
