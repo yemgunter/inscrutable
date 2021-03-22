@@ -1,6 +1,6 @@
 ###############################################################
 # Yolanda Gunter
-#  Lab 2             
+#  Lab 3             
 # My program uses a sentinel controlled while loop that will ask
 # for User's name, birth month and birth year. My program's first
 # input will process if it is not the sentinel value, will
