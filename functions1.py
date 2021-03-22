@@ -9,17 +9,26 @@
 ### CALL the message function
 ##message()
 
-# FIRST, define a function named main.
+# FIRST, define a function named main to memory,
+# SECOND, define function named message to memory,
+# THIRD, sees call to main,
+# FOURTH, executes main from memory,
+# FIFTH, sees call message within main,
+# SIXTH, execute message from memory,
+# LASTLY, continues within main to print & ends program.
 
 def main():
     print('I have a message for you.')
+    message()
+    print('Later!')
     
 def message():
     print('I am Arthur')
     print('King of Zoos')
-    
-# CALL the message function
-message()
+
+main()
+
+
 
 # this program does not take any input
 
