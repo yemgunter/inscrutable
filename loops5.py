@@ -14,3 +14,13 @@ for r in range(num_steps):
     for c in range(r):
         print(' ', end='')
     print('#')
+
+for r in range(2, 3):
+    for c in range(r):
+        print('#', end='')
+    print()
+
+for r in range(1, 4):
+    for c in range(r):
+        print('#', end='')
+    print()
