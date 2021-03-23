@@ -1,12 +1,12 @@
 ## Defining and Calling a FUNCTION Ch 5.2 Void Function
 
 
-### FIRST, define a function named message.
+### DEFINE function named message.
 ##def message():
 ##    print('I am Arthur')
 ##    print('King of Zoos')
 ##    
-### CALL the message function
+### CALL function named message 
 ##message()
 
 # FIRST, define a function named main to memory,
