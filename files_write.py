@@ -8,7 +8,7 @@
 
 def main():
     #   Open a file amed prophets.txt.
-    oitfile = open('prophets.txt', 'w')
+    outfile = open('prophets.txt', 'w')
 
     #   Write the names of three prophets
     #   to the file.
