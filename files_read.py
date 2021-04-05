@@ -3,22 +3,21 @@
 ##  than I did on Exam 1. Conquer this and RULE my mind.
 
 
-#   This program writes three lines of data
-#   to a file.
+#   This program reads and displays the contents of 
+#   of the prophets.txt file
 
 def main():
-    #   Open a file amed prophets.txt.
-    outfile = open('prophets.txt', 'w')
+    #   Open a file named prophets.txt.
+    infile = open('prophets.txt', 'r')
 
-    #   Write the names of three prophets
-    #   to the file.
-    outfile.write('John Eckhardt\n')
-    outfile.write('Matthew Stevenson\n')
-    outfile.write('Yolanda Gunter\n')
+    #   Read the file's content.
+    file_contents = infile.read()
 
     #   Close the file.
-    outfile.close()
+    infile.close()
 
+    #   Print the data that was read into memory
+    print(file_contents)
 
 main()
 
