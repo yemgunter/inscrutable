@@ -3,25 +3,30 @@
 ##  than I did on Exam 1. Conquer this and RULE my mind.
 
 
-#   This program reads the contents of 
-#   of the prophets.txt file one line at a time
+#   This program gets three names from the user
+#   and writes them to a file
 
 def main():
-    #   Open a file named prophets.txt.
-    infile = open('prophets.txt', 'r')
+    #   Get three names
+    print('Enter the names of three friends.')
+    name1 = input('Friend #1: ')
+    name2 = input('Friend #2: ')
+    name3 = input('Friend #3: ')
 
-    #   Read three lines from the file.
-    line1 = infile.readline()
-    line2 = infile.readline()
-    line3 = infile.readline()
+    #  Open a file named friends.txt.
+    myfile = open('friends.txt', 'w')
+
+    #  Write the names to the file.
+    myfile.write(name1 + '\n')
+    myfile.write(name2 + '\n')
+    myfile.write(name3 + '\n')
 
     #   Close the file.
-    infile.close()
+    myfile.close()
 
     #   Print the data that was read into memory
-    print(line1)
-    print(line2)
-    print(line3)
-
+    print('The names were written to friends.txt.')
+ 
+# Call the main function.
 main()
 
