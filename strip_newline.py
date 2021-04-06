@@ -8,7 +8,7 @@
 
 def main():
     #  Open a file named friends.txt.
-    infile = open('prophets.txt', 'w')
+    infile = open('prophets.txt', 'r')
 
     #   Read three lines from the file.
     line1 = infile.readline()
