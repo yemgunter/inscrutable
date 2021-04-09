@@ -34,8 +34,20 @@ my_list = [10, 20, 30, 40]
 
 
 # This code will cause an IndexError exception.
+##my_list = [10, 20, 30, 40]
+##index = 0
+##while index < 5:
+##    print(my_list[index])
+##    index += 1
+
+
+##my_list = [10, 20, 30, 40]
+##size = len(my_list)
+
 my_list = [10, 20, 30, 40]
 index = 0
-while index < 5:
+while index < len(my_list):
     print(my_list[index])
     index += 1
+
+
