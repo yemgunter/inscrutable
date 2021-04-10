@@ -1,31 +1,87 @@
 ###############################################################
 # Yolanda Gunter
 #  Lab 3             
-# My program uses a sentinel controlled while loop that will ask
-# for User's name, birth month and birth year. My program's first
-# input will process if it is not the sentinel value, will
-# validate the entered birth month to be between 1 and 12,
-# display an error message if input of birth month is invalid and
-# read next input (birth year) if valid utilizing a validation loop.
-# Valid inputs will run program that greet User with what season
-# they were born in and if they were born in a leap year or not. 
+# My program uses decisions, repetition and functions that will ask
+# for User's name, birth month and birth year to run program that
+# greet User with what season they were born in and if they were 
+# born in a leap year or not. Then my program will ask for how many
+# pennies they have in their penny jar and calculate and display
+# the number of each money denomination they will get when they cash them in.
+# 
 ###############################################################
 
 
-# Get User's name
-first_name = input('Enter your first name: ')
+########################################################
+# Function name: main
+# Input: passes to first_name, birth_month, birth_year
+# Output: print User's greeting, birth season & if leap yr or not 
+# Purpose: This function greets User with what season they were 
+# born in and if they were born in a leap year or not.    
+###############################################
 
-# Set sentinel value
-while first_name != 'zzz':
-# Get User's birth month as interger
+def main():
+    # Get User's name
+    first_name = input('Enter your first name: ')
+    # Call the get_month function
+    get_month()
+    # Call the get_year function
+    get_year()
+    # Call the find_season function
+    find_season()
+    # Call the is_leap_year funcion
+    is_leap-year()
+    
+    # Display greeting to User, season of birth and
+    # if birth year was leap or not
+    print("Hello, ", first_name, "! You were born in the ", season, " and ",
+          birth_year, " was ", year, sep='')
+    
+
+###############################################
+# Function name: get_month
+# Input: Describe values passed on the parameter list
+# Output: Describe the value(s) returned
+# Purpose: This function does this…    
+###############################################
+
+def get_month():
+    # Get User's birth month as interger
     month = int(input('Enter numeric birth month between 1 and 12: '))
     
-# Validate the month entered
+    # Validate the month entered
     while month < 1 or month > 12:
         print('ERROR: Month must be between 1 and 12')
         month = int(input('Enter a valid month between 1 and 12: '))
         
-# Assign User's birth month to a season 
+    
+
+
+###############################################
+# Function name: get_year
+# Input: Describe values passed on the parameter list
+# Output: Describe the value(s) returned
+# Purpose: This function does this…    
+###############################################
+
+def get_year():
+    # Get User's birth year
+    birth_year = int(input('Enter your birth year Ex: 1986: '))
+
+    # Validate the year entered
+    while birth_year < 0 or birth_year == 0:
+        print('ERROR: Year cannot be 0')
+        birth_year = int(input('Enter valid birth year Ex: 1986: '))
+
+
+###############################################
+# Function name: find_season
+# Input: Describe values passed on the parameter list
+# Output: Describe the value(s) returned
+# Purpose: This function does this…    
+###############################################
+
+def find_season():
+    # Assign User's birth month to a season 
     if month == 12 or month == 1 or month == 2:
         season = "winter"
     elif month == 3 or month == 4 or month == 5:
@@ -35,24 +91,36 @@ while first_name != 'zzz':
     elif month == 9 or month == 10 or month == 11:
         season = "fall"
 
-# Get User's birth year
-    birth_year = int(input('Enter your birth year Ex: 1986: '))
+###############################################
+# Function name: is_leap_year
+# Input: Describe values passed on the parameter list
+# Output: Describe the value(s) returned
+# Purpose: This function does this…    
+###############################################
 
-# Validate the year entered
-    while birth_year < 0 or birth_year == 0:
-        print('ERROR: Year cannot be 0')
-        birth_year = int(input('Enter valid birth year Ex: 1986: '))
-
-# Calculate if User's birth year is a leap year or not
+def is_leap_year():
+    # Calculate if User's birth year is a leap year or not
     if birth_year % 4 == 0 and birth_year % 100 != 0 or \
        birth_year % 400 == 0:
         year = "a leap yaer."
     else:
         year = "not a leap year."
 
-# Display greeting to User, season of birth and if birth year was leap or not
-    print("Hello, ", first_name, "! You were born in the ", season, " and ",
-          birth_year, " was ", year, sep='')
-# Do this again?
-    first_name = input('Enter another first name or ' \
-                       'Enter zzz to stop: ')
+###############################################
+# Function name: penny_jar
+# Input: Describe values passed on the parameter list
+# Output: Describe the value(s) returned
+# Purpose: This function does this…    
+###############################################
+
+
+# input will process if it is not the sentinel value, will
+# validate the entered birth month to be between 1 and 12,
+# display an error message if input of birth month is invalid and
+# read next input (birth year) if valid utilizing a validation loop.
+# Valid inputs will run program that greet User with what season
+# they were born in and if they were born in a leap year or not.
+
+
+# Call the main function
+main()
