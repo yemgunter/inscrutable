@@ -22,14 +22,18 @@
 def main():
     # Get User's name
     first_name = input('Enter your first name: ')
+
     # Call the get_month function
     get_month()
+    
     # Call the get_year function
-    get_year()
+    birth_year = get_year()
+    
     # Call the find_season function
     find_season()
+    
     # Call the is_leap_year funcion
-    is_leap-year()
+    year = is_leap-year()
     
     # Display greeting to User, season of birth and
     # if birth year was leap or not
@@ -39,23 +43,19 @@ def main():
 
 ###############################################
 # Function name: get_month
-# Input: Describe values passed on the parameter list
-# Output: Describe the value(s) returned
-# Purpose: This function does this…    
+# Input: integer passed to variable month
+# Output: value returned as month
+# Purpose: This function validates input and stores as month    
 ###############################################
 
 def get_month():
-    # Get User's birth month as interger
     month = int(input('Enter numeric birth month between 1 and 12: '))
-    
     # Validate the month entered
     while month < 1 or month > 12:
         print('ERROR: Month must be between 1 and 12')
         month = int(input('Enter a valid month between 1 and 12: '))
+        return month
         
-    
-
-
 ###############################################
 # Function name: get_year
 # Input: Describe values passed on the parameter list
@@ -64,23 +64,23 @@ def get_month():
 ###############################################
 
 def get_year():
-    # Get User's birth year
-    birth_year = int(input('Enter your birth year Ex: 1986: '))
-
+    birth_year = int(input('Enter valid birth year Ex: 1986: '))
     # Validate the year entered
     while birth_year < 0 or birth_year == 0:
         print('ERROR: Year cannot be 0')
         birth_year = int(input('Enter valid birth year Ex: 1986: '))
+        return birth_year
 
 
 ###############################################
 # Function name: find_season
-# Input: Describe values passed on the parameter list
-# Output: Describe the value(s) returned
-# Purpose: This function does this…    
+# Input: variable month is passed to argument
+# Output: value(s) returned as season
+# Purpose: This function determines which season
+# User is born in based month
 ###############################################
 
-def find_season():
+def find_season(month):
     # Assign User's birth month to a season 
     if month == 12 or month == 1 or month == 2:
         season = "winter"
@@ -90,6 +90,7 @@ def find_season():
         season = "summer"
     elif month == 9 or month == 10 or month == 11:
         season = "fall"
+    return season
 
 ###############################################
 # Function name: is_leap_year
