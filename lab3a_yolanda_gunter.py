@@ -18,22 +18,22 @@
 # Purpose: This function greets User with what season they were
 # born in and if they were born in a leap year or not.
 ###############################################
- def main():
+def main():
 
     # Get User's name
     first_name = input('Enter your first name: ')
 
     # Call the get_month function
-    get_month()
+    month = get_month()
     
     # Call the get_year function
     birth_year = get_year()
     
     # Call the find_season function
-    find_season()
+    season = find_season(month)
     
     # Call the is_leap_year funcion
-    year = is_leap-year()
+    year = is_leap_year(birth_year)
     
     # Display greeting to User, season of birth and
     # if birth year was leap or not
@@ -48,14 +48,13 @@
 # Purpose: This function validates input and stores as month
 ###############################################
 
-def get_month(month):
+def get_month():
     month = int(input('Enter numeric birth month between 1 and 12: '))
     # Validate the month entered
     while month < 1 or month > 12:
         print('ERROR: Month must be between 1 and 12')
         month = int(input('Enter a valid month between 1 and 12: '))
     return month
-
 
 ###############################################
 # Function name: get_year
@@ -101,13 +100,14 @@ def find_season(month):
 # Purpose: This function does this…
 ###############################################
 
-def is_leap_year():
+def is_leap_year(birth_year):
     # Calculate if User's birth year is a leap year or not
     if birth_year % 4 == 0 and birth_year % 100 != 0 or \
        birth_year % 400 == 0:
-        year = "a leap yaer."
+        status = 'leap year.' 
     else:
-        year = "not a leap year."
+        status = 'not a leap year.'
+    return status
 
 ###############################################
 # Function name: penny_jar
@@ -115,17 +115,6 @@ def is_leap_year():
 # Output: Describe the value(s) returned
 # Purpose: This function does this…
 ###############################################
-
-
-# input will process if it is not the sentinel value, will
-# validate the entered birth month to be between 1 and 12,
-# display an error message if input of birth month is invalid and
-# read next input (birth year) if valid utilizing a validation loop.
-# Valid inputs will run program that greet User with what season
-# they were born in and if they were born in a leap year or not.
-
-
-
 
 
 
