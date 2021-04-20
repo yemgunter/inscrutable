@@ -13,7 +13,7 @@
 
 ########################################################
 # Function name: main
-# Input: passes to first_name, birth_month, birth_year
+# Input: None
 # Output: print User's greeting, birth season & if leap yr or not 
 # Purpose: This function greets User with what season they were 
 # born in and if they were born in a leap year or not.    
@@ -37,13 +37,19 @@ def main():
     
     # Display greeting to User, season of birth and
     # if birth year was leap or not
-    print("Hello, ", first_name, "! You were born in the ", season, " and ",
-          birth_year, " was ", year, sep='')
+    print("Hello, ", first_name, "! You were born in the ",
+          season, " and ", birth_year, " was ", year, sep='')
+
+    # Get User's number of pennies in their penny jar
+    amount = int(input('How many pennies are in your penny jar?: '))
+    
+    # Call the penny_jar function
+    penny_jar(amount)
     
 
 ###############################################
 # Function name: get_month
-# Input: integer passed to variable month
+# Input: None
 # Output: value returned as month
 # Purpose: This function validates input and stores as month    
 ###############################################
@@ -58,9 +64,9 @@ def get_month():
         
 ###############################################
 # Function name: get_year
-# Input: Describe values passed on the parameter list
-# Output: Describe the value(s) returned
-# Purpose: This function does this…    
+# Input: None
+# Output: User's birth year
+# Purpose: This function validates input and stores as year    
 ###############################################
 
 def get_year():
@@ -74,10 +80,9 @@ def get_year():
 
 ###############################################
 # Function name: find_season
-# Input: variable month is passed to argument
-# Output: value(s) returned as season
-# Purpose: This function determines which season
-# User is born in based month
+# Input: month
+# Output: season
+# Purpose: Determines which season User is born 
 ###############################################
 
 def find_season(month):
@@ -94,9 +99,9 @@ def find_season(month):
 
 ###############################################
 # Function name: is_leap_year
-# Input: Describe values passed on the parameter list
-# Output: Describe the value(s) returned
-# Purpose: This function does this…    
+# Input: User's birth year
+# Output: value leap year (true) or not (False) 
+# Purpose: Determines if birth year is leap year or not.    
 ###############################################
 
 def is_leap_year(birth_year):
@@ -110,11 +115,23 @@ def is_leap_year(birth_year):
 
 ###############################################
 # Function name: penny_jar
-# Input: Describe values passed on the parameter list
-# Output: Describe the value(s) returned
-# Purpose: This function does this…    
+# Input: User's amount
+# Output: None
+# Purpose: Calculate and display the number of each money
+# denomination    
 ###############################################
 
+def penny_jar(amount):
+    # Calculate and display the number of each money denomination
+    print(amount // 100, "dollars")
+    amount %= 100
+    print(amount // 25, "quarters")
+    amount %= 25
+    print(amount // 10, "dimes")
+    amount %= 10
+    print(amount // 5, "nickles")
+    amount %= 5
+    print(amount//1, "pennies")
 
 
 # Call the main function
