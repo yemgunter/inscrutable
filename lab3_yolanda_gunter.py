@@ -22,30 +22,33 @@ def main():
     
     # Get User's name
     first_name = input('Enter your first name: ')
+    while first_name != 'zzz':
 
-    # Call the get_month function
-    month = get_month()
-    
-    # Call the get_year function
-    birth_year = get_year()
-    
-    # Call the find_season function
-    season = find_season(month)
-    
-    # Call the is_leap_year funcion
-    year = is_leap_year(birth_year)
-    
-    # Display greeting to User, season of birth and
-    # if birth year was leap or not
-    print("Hello, ", first_name, "! You were born in the ",
-          season, " and ", birth_year, " was ", year, sep='')
+        # Call the get_month function
+        month = get_month()
+        
+        # Call the get_year function
+        birth_year = get_year()
+        
+        # Call the find_season function
+        season = find_season(month)
+        
+        # Call the is_leap_year funcion
+        year = is_leap_year(birth_year)
+        
+        # Display greeting to User, season of birth and
+        # if birth year was leap or not
+        print("Hello, ", first_name, "! You were born in the ",
+              season, " and ", birth_year, " was ", year, sep='')
 
-    # Get User's number of pennies in their penny jar
-    amount = int(input('How many pennies are in your penny jar?: '))
-    
-    # Call the penny_jar function
-    penny_jar(amount)
-    
+        # Get User's number of pennies in their penny jar
+        amount = int(input('How many pennies are in your penny jar?: '))
+        
+        # Call the penny_jar function
+        penny_jar(amount)
+
+        first_name = input('Enter another first name or ' \
+                           'Enter zzz to stop: ')
 
 ###############################################
 # Function name: get_month
