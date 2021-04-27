@@ -2,9 +2,9 @@ def main():
     month_tuple = (" ", "January", "February", "March", "April",
                    "May", "June", "July", "August", "September",
                    "October", "November", "December")
-    date = input("Enter date in format mm/dd/yyyy: ")
+    birthdate = input("Enter date in format mm/dd/yyyy: ")
 
-    date_list = date.split('/')
+    date_list = birthdate.split('/')
 
     print(month_tuple[int(date_list[0])], " ", date_list[1], ", ",
           date_list[2], sep='')
