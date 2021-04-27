@@ -1,3 +1,19 @@
+## Ch 8.2 Strings slicing
+
+### Write an expression whose value is the string
+### that consists of the first four characters of string s.
+#s[0:4]
+
+
+### Write an expression whose value is a string
+### containing the first character of the value of name.
+##name[0]
+
+
+### Write an expression whose value is the string
+### consisting of all the characters (starting with the sixth) of string s.
+##s[5:]
+
 ##first_name = "Clovis"
 ##last_name = "Bagwell"
 ##
