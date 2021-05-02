@@ -5,88 +5,64 @@
 # and exception handling that will get the input from a file to
 # run program that asks User for current date, reads a contact file
 # list taht contains names with DOB, calculate each contact's age,
-# season contact was born in and if they were born in a leap year or not.
-# Then my program will print the output of the information with the
-# calculated average age of contacts in the data file.
+# season born in and born in a leap year or not.
+# Then my program will print the calculated average age.
 ###############################################################
 
 
 ########################################################
 # Function name: main
-# Input: None
-# Output: print User's greeting, birth season & if leap yr or not 
-# Purpose: This function reads a data file of contacts with DOB,
-# then printsa table of each contact's name, age, season born in
-# and if they were born in a leap year or not with a separate
-# line printed of the calculated average age of contacts in the 
-# data file.
+# Input: contactsLab4.txt file
+# Output: table of contact, age, birth season & if born leap yr or not 
+# Purpose: This function reads file, makes two lists, converts strings to 
+# integers, calculates ages, season born & if born leap yr or not 
+# then lastly calculats average age of contacts in entire file.
 ###############################################
 def main():
 
-    # Open a file named contactlab4.txt
-    contacts = open('contactsLab4.txt', 'r')
+    try:
 
-    # Read line from file then examine the line
-    name = contacts.readline()
-    while name != '':
-        print(name)
+        # Open a file named contactlab4.txt
+        contacts = open('contactsLab4.txt', 'r')
+        
+
+        # Read files, make lists, strip \n and establish records
         name = contacts.readline()
+        while name != '':
+            name = name.rstrip('\n')
+            birthdate = contacts.readline()
+            #birthdate = birthdate.rstrip('\n')
+
+            print(name, birthdate, season)
+
+            name = contacts.readline()
+            
+
+        # Close the file 
+        contacts.close()
+
+    # Simple exception if file is not found
+    except FileNotFoundError:
+        print("File was not found")
+    except Exception as err:
+        print("Error:", err)
 
 
-    # Close the file 
-    contacts.close()
 
-##   
-##    # Get current date
-##    date = input('Enter current date in format m/d/yyyy: ')
-##    today = date.split('/')
-##    while date != 'zzz':
+    # Call the find_season function
+    season = find_season(month_tuple)
+  
+##    # Call the is_leap_year funcion
+##    year = is_leap_year(birthdate)
+##    date_list = birthdate.split('/')
+##
+##    # Call the get_age function
+##
+##    age = get_age(date) today = date.split('/')
 ##        
-##        try:
-##            # Create empty name list
-##            name = []
-##
-##            # Create empty birthdate list
-##            birthdate = []
+##    # Call the display_contacts functions
+##    display_contacts(name, birthdate)
 
-           
-
-##            
-##        except IOError:
-##            print('An error occured trying to read')
-##            print('the file', contacts)
-
-           
-##
-##            date = int(input('Enter current date in format ' \
-##                               'm/d/yyyy or Enter end to stop: ')) 
-
-
-##            # Read rest of the file
-##            while name != '':
-##                inlist
-##                # Read the birthdate field
-##                birthdate = infile.read()
-##                date_list = birthdate.split('/')
-##                
-##
-##            
-##    
-##            # Call the find_season function
-##            season = find_season(month_tuple)
-##            
-##            # Call the is_leap_year funcion
-##            year = is_leap_year(birthdate)
-##            date_list = birthdate.split('/')
-##
-##            # Call the get_age function
-##
-##            age = get_age(date)
-##            today = date.split('/')
-##                
-##            # Call the display_contacts functions
-##            display_contacts(name, birthdate)
-##
             
 
 
@@ -97,30 +73,31 @@ def main():
 # Purpose: Determines which season contact is born 
 ###############################################
 
-##def find_season(month_tuple):
-##    month_tuple = (" ", "January", "February", "March", "April",
-##                       "May", "June", "July", "August", "September",
-##                       "October", "November", "December")
-##    # Assign contact birth month to a season
-##    month_tuple = date_list[0]
-##    if month_tuple == 12 or month_tuple == 1 or month_tuple == 2:
-##        season = "winter"
-##    elif month_tuple == 3 or month_tuple == 4 or month_tuple == 5:
-##        season = "spring"
-##    elif month_tuple == 6 or month_tuple == 7 or month_tuple == 8:
-##        season = "summer"
-##    elif month_tuple == 9 or month_tuple == 10 or month_tuple == 11:
-##        season = "fall"
-##    return season
+def find_season(month_tuple):
+    month_tuple = (" ", "January", "February", "March", "April",
+                       "May", "June", "July", "August", "September",
+                       "October", "November", "December")
+    # Assign contact birth month to a season
+    month_tuple = date_list[0]
+    if month_tuple == 12 or month_tuple == 1 or month_tuple == 2:
+        season = "winter"
+    elif month_tuple == 3 or month_tuple == 4 or month_tuple == 5:
+        season = "spring"
+    elif month_tuple == 6 or month_tuple == 7 or month_tuple == 8:
+        season = "summer"
+    elif month_tuple == 9 or month_tuple == 10 or month_tuple == 11:
+        season = "fall"
+    return season
     
     
 
 ###############################################
 # Function name: is_leap_year
-# Input: birthdate 
+# Input: birthdate list
 # Output: value leap year (Yes) or not (No) 
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
+
 ##def is_leap_year(birthdate):
 ##    date_list = birthdate.split('/')
 ##    year = date_list[int(birth_date[2])]
@@ -135,21 +112,23 @@ def main():
 
 ###############################################
 # Function name: get_age
-# Input: None
+# Input: birthdate list
 # Output: age of contact 
 # Purpose: Caculates age of contact    
 ###############################################
-#def get_age(date):
-    #date -= birthdate[2]
+
+##def get_age(date):
+##    date -= birthdate[2]
     
 
 ###############################################
 # Function name: display_contacts
-# Input: birth_year
+# Input: name and birthdate lists
 # Output: value leap year (Yes) or not (No) 
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
-#def display_contacts(name, birthdate):
+
+##def display_contacts(name, birthdate):
    
 
     
