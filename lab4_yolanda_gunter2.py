@@ -32,12 +32,12 @@ def main():
             name = name.rstrip('\n')
             birthdate = contacts.readline()
             #birthdate = birthdate.rstrip('\n')
-
-            print(name, birthdate, season)
-
             name = contacts.readline()
-            
 
+            season = find_season()
+
+        print(name, birthdate)   
+            
         # Close the file 
         contacts.close()
 
@@ -49,8 +49,9 @@ def main():
 
 
 
-    # Call the find_season function
-    season = find_season(month_tuple)
+    
+
+    
   
 ##    # Call the is_leap_year funcion
 ##    year = is_leap_year(birthdate)
@@ -73,19 +74,18 @@ def main():
 # Purpose: Determines which season contact is born 
 ###############################################
 
-def find_season(month_tuple):
-    month_tuple = (" ", "January", "February", "March", "April",
-                       "May", "June", "July", "August", "September",
-                       "October", "November", "December")
+def find_season():
+    date_list = birthdate.split('/')
+    month = date_list[0]
+    
     # Assign contact birth month to a season
-    month_tuple = date_list[0]
-    if month_tuple == 12 or month_tuple == 1 or month_tuple == 2:
+    if month == 12 or month == 1 or month == 2:
         season = "winter"
-    elif month_tuple == 3 or month_tuple == 4 or month_tuple == 5:
+    elif month == 3 or month == 4 or month == 5:
         season = "spring"
-    elif month_tuple == 6 or month_tuple == 7 or month_tuple == 8:
+    elif month == 6 or month == 7 or month == 8:
         season = "summer"
-    elif month_tuple == 9 or month_tuple == 10 or month_tuple == 11:
+    elif month == 9 or month == 10 or month == 11:
         season = "fall"
     return season
     
@@ -128,7 +128,7 @@ def find_season(month_tuple):
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
 
-##def display_contacts(name, birthdate):
+#def display_contacts(name, birthdate):
    
 
     
