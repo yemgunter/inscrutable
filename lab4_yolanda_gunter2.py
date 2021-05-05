@@ -4,7 +4,7 @@
 # My program uses decisions, repetition, functions, files, lists
 # and exception handling that will get the input from a file to
 # run program that asks User for current date, reads a contact file
-# list taht contains names with DOB, calculate each contact's age,
+# list that contains names with DOB, calculate each contact's age,
 # season born in and born in a leap year or not.
 # Then my program will print the calculated average age.
 ###############################################################
@@ -37,8 +37,8 @@ def main():
             season = find_season()
 
         print(name, birthdate)   
-            
-        # Close the file 
+         
+         # Close the file 
         contacts.close()
 
     # Simple exception if file is not found
