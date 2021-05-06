@@ -6,7 +6,7 @@
 # run program that asks User for current date, reads a contact file
 # list that contains names with DOB, calculate each contact's age,
 # season born in and born in a leap year or not.
-# Then my program will print the calculated average age.
+# Then my program will print the calculated average age of contacts.
 ###############################################################
 
 
@@ -20,53 +20,51 @@
 ###############################################
 def main():
 
+    # start exception handling
     try:
 
-        name = []
-        birthdate = []
-        
         # Open a file named contactlab4.txt
         contacts = open('contactsLab4.txt', 'r')
+
+        # Create empty name list
+        names = []
+
+        # Create empty birthday list
+        birthdates = []
+
+        # Read file, establish records, strip \n, append to lists, 
+        name = contacts.readline()
+        while name != '':
+            name = name.rstrip('\n')
+            names.append(name)
+            birthdate = contacts.readline()
+            birthdate = birthdate.rstrip('\n')
+            birthdates.append(birthdate)
+                      
+            name = contacts.readline()
+    
         
-
-        # Read files, make lists, strip \n and establish records
-        for line in contacts:
-            name.append(int(line))
-
-        for value in name:
-            birthdate.append(value)
-            
-
-            print(name, birthdate)   
-         
-         # Close the file 
+        # Close the file 
         contacts.close()
+
+        # Call find_season
+        season = find_season(birthdates)
+
+        # Call is_leap_year
+        year = is_leap_year(birthdates)
+
+        # Call get_age
+        age = get_age(date, birthdates)
+
+        # Call display_contacts
+        display_contacts(names, birthdates)
 
     # Simple exception if file is not found
     except FileNotFoundError:
         print("File was not found")
     except Exception as err:
         print("Error:", err)
-
-
-
-    
-
-    
-  
-##    # Call the is_leap_year funcion
-##    year = is_leap_year(birthdate)
-##    date_list = birthdate.split('/')
-##
-##    # Call the get_age function
-##
-##    age = get_age(date) today = date.split('/')
-##        
-##    # Call the display_contacts functions
-##    display_contacts(name, birthdate)
-
             
-
 
 ###############################################
 # Function name: find_season
@@ -75,20 +73,20 @@ def main():
 # Purpose: Determines which season contact is born 
 ###############################################
 
-##def find_season():
-##    date_list = birthdate.split('/')
-##    month = date_list[0]
-##    
-##    # Assign contact birth month to a season
-##    if month == 12 or month == 1 or month == 2:
-##        season = "winter"
-##    elif month == 3 or month == 4 or month == 5:
-##        season = "spring"
-##    elif month == 6 or month == 7 or month == 8:
-##        season = "summer"
-##    elif month == 9 or month == 10 or month == 11:
-##        season = "fall"
-##    return season
+def find_season(birthdate):
+    month = birthdates.split('/')
+    months = birthmonth[0]
+    
+    # Assign contact birth month to a season
+    if month == 12 or month == 1 or month == 2:
+        season = "winter"
+    elif month == 3 or month == 4 or month == 5:
+        season = "spring"
+    elif month == 6 or month == 7 or month == 8:
+        season = "summer"
+    elif month == 9 or month == 10 or month == 11:
+        season = "fall"
+    return season
     
     
 
@@ -118,7 +116,7 @@ def main():
 # Purpose: Caculates age of contact    
 ###############################################
 
-##def get_age(date):
+##def get_age(date, birthdate):
 ##    date -= birthdate[2]
     
 
@@ -129,12 +127,21 @@ def main():
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
 
-#def display_contacts(name, birthdate):
-   
+def display_contacts(name, birthdate):
+    # Get current date
+    date = input('Enter current date in format m/d/yyyy: ')
+    
+    
+    # format display in table format with column headings
+    print(format("Name", '25'), format("Age", '4'),
+          format("Season", '8'), format("Leap Year", '10'))
+    print(format("----", '25'), format("---", '4'),
+          format("------", '8'), format("---------", '10'))
+    for i in range(len(name)):
+        print(format(name[i], '25'), format(str(age[i]), '4'),
+              format(season[i], '8'), format(year[i], '10'))
+          
 
-    
-            
-    
 
 # Call the main function
 main()
