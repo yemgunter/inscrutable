@@ -22,21 +22,22 @@ def main():
 
     try:
 
+        name = []
+        birthdate = []
+        
         # Open a file named contactlab4.txt
         contacts = open('contactsLab4.txt', 'r')
         
 
         # Read files, make lists, strip \n and establish records
-        name = contacts.readline()
-        while name != '':
-            name = name.rstrip('\n')
-            birthdate = contacts.readline()
-            #birthdate = birthdate.rstrip('\n')
-            name = contacts.readline()
+        for line in contacts:
+            name.append(int(line))
 
-            season = find_season()
+        for value in name:
+            birthdate.append(value)
+            
 
-        print(name, birthdate)   
+            print(name, birthdate)   
          
          # Close the file 
         contacts.close()
@@ -74,20 +75,20 @@ def main():
 # Purpose: Determines which season contact is born 
 ###############################################
 
-def find_season():
-    date_list = birthdate.split('/')
-    month = date_list[0]
-    
-    # Assign contact birth month to a season
-    if month == 12 or month == 1 or month == 2:
-        season = "winter"
-    elif month == 3 or month == 4 or month == 5:
-        season = "spring"
-    elif month == 6 or month == 7 or month == 8:
-        season = "summer"
-    elif month == 9 or month == 10 or month == 11:
-        season = "fall"
-    return season
+##def find_season():
+##    date_list = birthdate.split('/')
+##    month = date_list[0]
+##    
+##    # Assign contact birth month to a season
+##    if month == 12 or month == 1 or month == 2:
+##        season = "winter"
+##    elif month == 3 or month == 4 or month == 5:
+##        season = "spring"
+##    elif month == 6 or month == 7 or month == 8:
+##        season = "summer"
+##    elif month == 9 or month == 10 or month == 11:
+##        season = "fall"
+##    return season
     
     
 
