@@ -22,20 +22,13 @@
 ###############################################
 def main():
 
-    month_tuple = (" ", "January", "February", "March", "April",
-                       "May", "June", "July", "August", "September",
-                       "October", "November", "December")
-
-    # Create empty name list
+        # Create empty name list
     name = []
 
     # Create empty birthdate list
     birthdate = []
 
-    # Get current date
-    date = input('Enter current date in format m/d/yyyy: ')
-    today = date.split('/')
-    while date != 'zzz':
+    
         try:
             
             # Open a file named contactlab4.txt
