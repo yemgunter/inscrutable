@@ -17,7 +17,7 @@ def main():
         name = friends.readline()  # read first line name field
         while name != "":  #if a field is read establish records
             name = name.rstrip('\n')   #strip \n from name field
-            age = int(friends.readline()) #convert strin age to interger
+            age = int(friends.readline()) #convert string age to interger
             food = friends.readline().rstrip('\n')  #strip \n from food field
 
             print(name, age, food) #diplay record
