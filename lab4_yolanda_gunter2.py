@@ -35,26 +35,15 @@ def main():
         # Read file, establish records, strip \n, append to lists, 
         name = contacts.readline()
         while name != '':
-            name = name.rstrip('\n')
-            names.append(name)
-            birthdate = contacts.readline()
-            birthdate = birthdate.rstrip('\n')
-            birthdates.append(birthdate)
-                      
+            names.append(name.rstrip('\n'))
+            date = contacts.readline()
+            birthdates.append(date.rstrip('\n'))
+            
             name = contacts.readline()
     
         
         # Close the file 
         contacts.close()
-
-        # Call find_season
-        season = find_season(birthdates)
-
-        # Call is_leap_year
-        year = is_leap_year(birthdates)
-
-        # Call get_age
-        age = get_age(date, birthdates)
 
         # Call display_contacts
         display_contacts(names, birthdates)
@@ -73,9 +62,9 @@ def main():
 # Purpose: Determines which season contact is born 
 ###############################################
 
-def find_season(birthdate):
-    month = birthdates.split('/')
-    months = birthmonth[0]
+def find_season(birthdates):
+    month = birthdates.split('/', 3)
+    month = int(month[0])
     
     # Assign contact birth month to a season
     if month == 12 or month == 1 or month == 2:
@@ -97,27 +86,40 @@ def find_season(birthdate):
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
 
-##def is_leap_year(birthdate):
-##    date_list = birthdate.split('/')
-##    year = date_list[int(birth_date[2])]
-##            
-##    # Calculate if User's birth year is a leap year or not
-##    if birthdate % 4 == 0 and birthdate % 100 != 0 or \
-##    birthdate % 400 == 0:
-##        year = "Yes"
-##    else:
-##        year = "No"
-##    return year
+def is_leap_year(birthdates):
+    birthyear = birthdates.split('/', 3)
+    birthyear = int(birthyear[2])
+            
+    # Calculate if User's birth year is a leap year or not
+    if birthyear % 4 == 0 and birthyear % 100 != 0 or \
+    birthyear % 400 == 0:
+        year = "Yes"
+    else:
+        year = "No"
+    return year
 
 ###############################################
 # Function name: get_age
-# Input: birthdate list
+# Input: current date and birthdate list
 # Output: age of contact 
 # Purpose: Caculates age of contact    
 ###############################################
 
-##def get_age(date, birthdate):
-##    date -= birthdate[2]
+def get_age(date, birthdates):
+    today = date.split('/', 3)
+    todayMonth = int(today[0])
+    todayYear = int(today[2])
+                    
+    
+    birthyear = birthdates.split('/', 3)
+    birthMonth = int(birthyear[0])
+    birthyear = int(birthyear[2])
+
+    if todayMonth > birthMonth:
+        age = todayYear - birthyear-1
+    else:
+        age = todayYear - birthyear
+    return age
     
 
 ###############################################
@@ -126,22 +128,26 @@ def find_season(birthdate):
 # Output: value leap year (Yes) or not (No) 
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
-
-def display_contacts(name, birthdate):
+def display_contacts(names, birthdates):
     # Get current date
     date = input('Enter current date in format m/d/yyyy: ')
-    
-    
-    # format display in table format with column headings
-    print(format("Name", '25'), format("Age", '4'),
-          format("Season", '8'), format("Leap Year", '10'))
-    print(format("----", '25'), format("---", '4'),
-          format("------", '8'), format("---------", '10'))
-    for i in range(len(name)):
-        print(format(name[i], '25'), format(str(age[i]), '4'),
-              format(season[i], '8'), format(year[i], '10'))
-          
 
+    # format display in table format with column headings
+    print(format("Name", '25'), format("Age", '6'),
+          format("Season", '8'), format("Leap Year", '10'))
+    print(format("----", '25'), format("---", '6'),
+          format("------", '8'), format("---------", '10'))
+
+    # Call 
+    age = get_age(date, birthdates)
+
+    season = find_season(birthdates)      
+
+    year = is_leap_year(birthdates)
+    
+    for i in range(len(name)):
+        print(format(name[i], '25'), format(str(age[i]), '6'),
+              format(season[i], '8'), format(year[i], '10'))
 
 # Call the main function
 main()
