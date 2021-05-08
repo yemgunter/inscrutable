@@ -38,30 +38,15 @@ def main():
             names.append(name.rstrip('\n'))
             date = contacts.readline()
             birthdates.append(date.rstrip('\n'))
-      
-            for i in birthdates:
-                season = find_season(i)
-                print(season)
-            for i in birthdates:
-                year = is_leap_year(i)
-                print(year)
+            
             name = contacts.readline()
     
         
         # Close the file 
         contacts.close()
 
-        # Call find_season
-        #season = find_season(birthdates)
-
-        # Call is_leap_year
-        #year = is_leap_year(birthdates)
-
-        # Call get_age
-        #age = get_age(date, birthdates)
-
         # Call display_contacts
-        #display_contacts(names, birthdates)
+        display_contacts(names, birthdates)
 
     # Simple exception if file is not found
     except FileNotFoundError:
@@ -78,7 +63,7 @@ def main():
 ###############################################
 
 def find_season(birthdates):
-    month = birthdates.split("/", 3)
+    month = birthdates.split('/', 3)
     month = int(month[0])
     
     # Assign contact birth month to a season
@@ -102,7 +87,7 @@ def find_season(birthdates):
 ###############################################
 
 def is_leap_year(birthdates):
-    birthyear = birthdates.split("/")
+    birthyear = birthdates.split('/', 3)
     birthyear = int(birthyear[2])
             
     # Calculate if User's birth year is a leap year or not
@@ -115,21 +100,19 @@ def is_leap_year(birthdates):
 
 ###############################################
 # Function name: get_age
-# Input: birthdate list
+# Input: current date and birthdate list
 # Output: age of contact 
 # Purpose: Caculates age of contact    
 ###############################################
 
 def get_age(date, birthdates):
-    today = date.split('/')
+    today = date.split('/', 3)
     todayMonth = int(today[0])
-    todayDay = int(today[1])
     todayYear = int(today[2])
                     
     
-    birthyear = birthdates.split('/')
+    birthyear = birthdates.split('/', 3)
     birthMonth = int(birthyear[0])
-    birthDay = int(birthyear[1])
     birthyear = int(birthyear[2])
 
     if todayMonth > birthMonth:
@@ -145,10 +128,26 @@ def get_age(date, birthdates):
 # Output: value leap year (Yes) or not (No) 
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
+def display_contacts(names, birthdates):
+    # Get current date
+    date = input('Enter current date in format m/d/yyyy: ')
 
+    # format display in table format with column headings
+    print(format("Name", '25'), format("Age", '6'),
+          format("Season", '8'), format("Leap Year", '10'))
+    print(format("----", '25'), format("---", '6'),
+          format("------", '8'), format("---------", '10'))
 
-          
+    # Call 
+    age = get_age(date, birthdates)
 
+    season = find_season(birthdates)      
+
+    year = is_leap_year(birthdates)
+    
+    for i in range(len(name)):
+        print(format(name[i], '25'), format(str(age[i]), '6'),
+              format(season[i], '8'), format(year[i], '10'))
 
 # Call the main function
 main()
