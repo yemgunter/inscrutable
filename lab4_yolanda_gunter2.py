@@ -57,7 +57,7 @@ def main():
 
 ###############################################
 # Function name: find_season
-# Input: birthdate
+# Input: birthdates
 # Output: a string as a season
 # Purpose: Determines which season contact is born 
 ###############################################
@@ -81,7 +81,7 @@ def find_season(birthdates):
 
 ###############################################
 # Function name: is_leap_year
-# Input: birthdate list
+# Input: birthdates
 # Output: value leap year (Yes) or not (No) 
 # Purpose: Determines if birth year is leap year or not.    
 ###############################################
@@ -100,54 +100,55 @@ def is_leap_year(birthdates):
 
 ###############################################
 # Function name: get_age
-# Input: current date and birthdate list
+# Input: todays and birthdates
 # Output: age of contact 
 # Purpose: Caculates age of contact    
 ###############################################
 
-def get_age(date, birthdates):
-    today = date.split('/', 3)
-    todayMonth = int(today[0])
-    todayYear = int(today[2])
-                    
-    
+def get_age(birthdates, todays):
     birthyear = birthdates.split('/', 3)
-    birthMonth = int(birthyear[0])
     birthyear = int(birthyear[2])
+    birthDay = int(birthyear[1])
+    birthMonth = int(birthyear[0])
 
-    if todayMonth > birthMonth:
-        age = todayYear - birthyear-1
-    else:
-        age = todayYear - birthyear
-    return age
+    today = todays.split('/', 3)
+    todayYear = int(today[2])
+    todayDay= int(today[1])
+    todayMonth = int(today[0])
     
+    
+    if todayMonth > birthMonth:
+        age = todayYear - birthyear
+    elif todayMonth == birthMonth \
+         and todayDay > birthDay:
+        age = todayYear - birthyear
+    else:
+        age = todayYear - birthyear - 1
+    return age
+
 
 ###############################################
 # Function name: display_contacts
-# Input: name and birthdate lists
-# Output: value leap year (Yes) or not (No) 
-# Purpose: Determines if birth year is leap year or not.    
+# Input: names and birthdates lists
+# Output: contact list names, birth season, birth year is leap or not 
+# Purpose: Display table of data calculated from functions    
 ###############################################
 def display_contacts(names, birthdates):
+    
     # Get current date
-    date = input('Enter current date in format m/d/yyyy: ')
+    today = input('Enter current date in format m/d/yyyy: ')
+    
 
     # format display in table format with column headings
-    print(format("Name", '25'), format("Age", '6'),
+    print(format("Name", '25'), \
           format("Season", '8'), format("Leap Year", '10'))
-    print(format("----", '25'), format("---", '6'),
+    print(format("----", '25'), \
           format("------", '8'), format("---------", '10'))
-
-    # Call 
-    age = get_age(date, birthdates)
-
-    season = find_season(birthdates)      
-
-    year = is_leap_year(birthdates)
-    
-    for i in range(len(name)):
-        print(format(name[i], '25'), format(str(age[i]), '6'),
-              format(season[i], '8'), format(year[i], '10'))
+    for i in range(len(names)):
+        print(format(names[i], '25'), \
+              format(find_season(birthdates[i]), '8'), \
+              format(is_leap_year(birthdates[i]), '10'))
+  
 
 # Call the main function
 main()
