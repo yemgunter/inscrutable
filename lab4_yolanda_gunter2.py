@@ -32,13 +32,19 @@ def main():
         # Create empty birthday list
         birthdates = []
 
-        # Read file, establish records, strip \n, append to lists, 
+        # Read first name from the file
         name = contacts.readline()
         while name != '':
+            # put name in names list, remove \n from name
             names.append(name.rstrip('\n'))
-            date = contacts.readline()
-            birthdates.append(date.rstrip('\n'))
-            
+
+            # read birthdate
+            birthdate = contacts.readline()
+
+            # put birthdate in birthdates list, remove \n frm birthdate
+            birthdates.append(birthdate.rstrip('\n'))
+
+            # read next name from file
             name = contacts.readline()
     
         
