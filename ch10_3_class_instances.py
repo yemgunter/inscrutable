@@ -1,5 +1,3 @@
-
-
 import FriendClass
 
 def main():
@@ -38,15 +36,10 @@ def display_friends(chums):
     print(format("Name", '20'), format("Age", '5'),
           format("Fav Food", '25'))
     for i in range(len(chums)):
-        print(format(chums[i].get_name(), '20')),\
-              format(str(chums[i].get_age(), '5')), \
-                format(chums[i].get_food(), '25')
+        print(format(chums[i].get_name(), '20'),\
+              format(str(chums[i]).get_age(), '5'), \
+                format(chums[i]).get_food(), '25')
         return friends_list
 
-    
-##    print(format("Name", '20'), format("Age", '5'),
-##          format("Favorite food", '25'))
-##    for i in range(len(names)):
-##        print(format(names[i], '20'), format(str(ages[i]), '5'),
-##              format(foods[i], '25'))         
+     
 main()
