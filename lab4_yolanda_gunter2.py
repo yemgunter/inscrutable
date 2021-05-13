@@ -20,29 +20,30 @@
 ###############################################
 def main():
 
+    # Create lists to be used for names and birthdates
+    names = []
+    birthdates = []
+
     # start exception handling
     try:
 
         # Open a file named contactlab4.txt
         contacts = open('contactsLab4.txt', 'r')
 
-        # Create empty name list
-        names = []
-
-        # Create empty birthday list
-        birthdates = []
-
         # Read first name from the file
         name = contacts.readline()
         while name != '':
-            # put name in names list, remove \n from name
-            names.append(name.rstrip('\n'))
+            # remove \n from name
+            name = name.rstrip('\n')
+            
+            # read birthdate, remove \n frm birthdate
+            birthdate = contacts.readline().rstrip('\n')
 
-            # read birthdate
-            birthdate = contacts.readline()
-
-            # put birthdate in birthdates list, remove \n frm birthdate
-            birthdates.append(birthdate.rstrip('\n'))
+            # put name in names list
+            names.append(name)
+            
+            # put birthdate in birthdates list
+            birthdates.append(birthdate)
 
             # read next name from file
             name = contacts.readline()
@@ -112,26 +113,27 @@ def is_leap_year(birthdates):
 ###############################################
 
 def get_age(birthdates, todays):
-    birthyear = birthdates.split('/', 3)
-    birthyear = int(birthyear[2])
-    birthDay = int(birthyear[1])
-    birthMonth = int(birthyear[0])
+    todays_date = todays.split('/')
+    birth_dates = birthdates.split('/')
 
-    today = todays.split('/', 3)
-    todayYear = int(today[2])
-    todayDay= int(today[1])
-    todayMonth = int(today[0])
-    
-    
-    if todayMonth > birthMonth:
-        age = todayYear - birthyear
-    elif todayMonth == birthMonth \
-         and todayDay > birthDay:
-        age = todayYear - birthyear
-    else:
-        age = todayYear - birthyear - 1
+    # convert parts from the dates to integers for calculations
+    for i in range(3):
+        todays_date[i] = int(todays_date[i])
+        birth_dates[i] = int(birth_dates[i])
+
+    # calculate the age assumeing the current birthdate
+    # has already happened
+    age = todays_date[2] - birth_dates[2]
+
+    # check to see if the birthdate has not happened yet
+    if todays_date[0] < birth_dates[0]:
+        age -= 1
+    elif todays_date[0] == birth_dates[0]:
+        if todays_date[1] < birth_dates[1]:
+            age -= 1
+
     return age
-
+        
 
 ###############################################
 # Function name: display_contacts
@@ -142,19 +144,32 @@ def get_age(birthdates, todays):
 def display_contacts(names, birthdates):
     
     # Get current date
-    today = input('Enter current date in format m/d/yyyy: ')
+    todays = input('Enter current date in format m/d/yyyy: ')
+
+    # initiates total age to use in average age calculation
+    total_age = 0
     
 
     # format display in table format with column headings
-    print(format("Name", '25'), \
+    print(format("Name", '25'), format("Age", '5'), \
           format("Season", '8'), format("Leap Year", '10'))
-    print(format("----", '25'), \
-          format("------", '8'), format("---------", '10'))
+    print(format("-------", '25'), format("-----", '5'), \
+          format("-----", '8'), format("---------", '10'))
     for i in range(len(names)):
+
+        # get contact's age
+        age = get_age(todays, birthdates[i])
+
+        # accumulate ages for the average age calculation
+        total_age += age
+        
         print(format(names[i], '25'), \
+              format(get_age(birthdates, todays[i]), '5'), \
               format(find_season(birthdates[i]), '8'), \
               format(is_leap_year(birthdates[i]), '10'))
-  
+
+    # calculate and display the average age of contacts
+    print("\nAverage age of contact is ", total_age // len(names))
 
 # Call the main function
 main()
