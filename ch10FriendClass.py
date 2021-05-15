@@ -20,6 +20,8 @@ class Friend:
     def get_food(self):
         return self.__food
 
+
+
     def __str__(self):
         return "Name: " + self.__name + '\n' + \
                "Age: " + str(self.__age) + '\n' + \
